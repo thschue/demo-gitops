@@ -10,5 +10,42 @@ spec:
     chart:
       name: flux2
       repository: https://fluxcd-community.github.io/helm-charts
+    values:
+  providerConfigRef:
+    name: helm-provider-hardening
+---
+apiVersion: helm.crossplane.io/v1beta1
+kind: Release
+metadata:
+  name: flux-sync-hardening
+  namespace: crossplane-system
+spec:
+  # rollbackLimit: 3
+  forProvider:
+    namespace: flux-system
+    chart:
+      name: flux2-sync
+      repository: https://fluxcd-community.github.io/helm-charts
+    values:
+      gitRepository:
+        spec:
+          url: "https://github.com/thschue/demo-gitops"
+          interval: 2m
+          ref:
+            branch: "main"
+          ignore: |
+            # exclude all
+            /*
+            # include deploy dir
+            !/app/base
+            !/app/hardening
+      kustomization:
+        spec:
+          interval: 2m
+          path: "./app/hardening"
+          prune: true
+          sourceRef:
+            kind: GitRepository
+            name: flux-sync-hardening
   providerConfigRef:
     name: helm-provider-hardening

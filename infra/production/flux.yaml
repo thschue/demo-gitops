@@ -10,5 +10,42 @@ spec:
     chart:
       name: flux2
       repository: https://fluxcd-community.github.io/helm-charts
+    values:
+  providerConfigRef:
+    name: helm-provider-production
+---
+apiVersion: helm.crossplane.io/v1beta1
+kind: Release
+metadata:
+  name: flux-sync-production
+  namespace: crossplane-system
+spec:
+  # rollbackLimit: 3
+  forProvider:
+    namespace: flux-system
+    chart:
+      name: flux2-sync
+      repository: https://fluxcd-community.github.io/helm-charts
+    values:
+      gitRepository:
+        spec:
+          url: "https://github.com/thschue/demo-gitops"
+          interval: 2m
+          ref:
+            branch: "main"
+          ignore: |
+            # exclude all
+            /*
+            # include deploy dir
+            !/app/base
+            !/app/production
+      kustomization:
+        spec:
+          interval: 2m
+          path: "./app/production"
+          prune: true
+          sourceRef:
+            kind: GitRepository
+            name: flux-sync-production
   providerConfigRef:
     name: helm-provider-production
