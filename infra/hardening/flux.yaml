@@ -1,7 +1,7 @@
 apiVersion: helm.crossplane.io/v1beta1
 kind: Release
 metadata:
-  name: flux-production
+  name: flux-hardening
   namespace: crossplane-system
 spec:
   # rollbackLimit: 3
@@ -11,4 +11,4 @@ spec:
       name: flux2
       repository: https://fluxcd-community.github.io/helm-charts
   providerConfigRef:
-    name: helm-provider-dev
+    name: helm-provider-hardening
