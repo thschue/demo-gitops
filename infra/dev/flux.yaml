@@ -9,5 +9,6 @@ spec:
     chart:
       name: flux
       repository: https://fluxcd-community.github.io/helm-charts
+      namespace: flux-system
   providerConfigRef:
     name: helm-provider-dev
