@@ -12,3 +12,30 @@ spec:
       repository: https://fluxcd-community.github.io/helm-charts
   providerConfigRef:
     name: helm-provider-dev
+---
+apiVersion: helm.crossplane.io/v1beta1
+kind: Release
+metadata:
+  name: flux-sync-dev
+  namespace: crossplane-system
+spec:
+  # rollbackLimit: 3
+  forProvider:
+    namespace: flux-system
+    chart:
+      name: flux2-sync
+      repository: https://fluxcd-community.github.io/helm-charts
+    values:
+      gitRepository:
+        spec:
+          url: "https://github.com/thschue/demo-gitops"
+          ref:
+            branch: "main"
+        kustomizationlist:
+        - spec:
+            interval: 5m
+            path: ./app/dev
+            prune: true
+            timeout: 5m
+  providerConfigRef:
+    name: helm-provider-dev
