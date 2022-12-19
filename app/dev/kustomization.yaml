@@ -3,6 +3,6 @@ kind: Kustomization
 
 bases:
   - ../base
-  
+
 patchesStrategicMerge:
   - deploy.yaml
