@@ -10,6 +10,7 @@ spec:
     chart:
       name: flux2
       repository: https://fluxcd-community.github.io/helm-charts
+    values:
   providerConfigRef:
     name: helm-provider-dev
 ---
@@ -31,6 +32,11 @@ spec:
           url: "https://github.com/thschue/demo-gitops"
           ref:
             branch: "main"
+          ignore: |
+            # exclude all
+            /*
+            # include deploy dir
+            !/app
         kustomizationlist:
         - spec:
             interval: 5m
