@@ -1,0 +1,12 @@
+apiVersion: helm.crossplane.io/v1beta1
+kind: Release
+metadata:
+  name: flux
+spec:
+  # rollbackLimit: 3
+  forProvider:
+    chart:
+      name: flux
+      repository: https://fluxcd-community.github.io/helm-charts
+  providerConfigRef:
+    name: helm-provider-dev
