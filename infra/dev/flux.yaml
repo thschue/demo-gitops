@@ -36,12 +36,7 @@ spec:
             # exclude all
             /*
             # include deploy dir
-            !/app
-        kustomizationlist:
-        - spec:
-            interval: 3m
-            path: "./app/dev"
-            prune: true
-            timeout: 3m
+            !/app/base
+            !/app/dev
   providerConfigRef:
     name: helm-provider-dev
