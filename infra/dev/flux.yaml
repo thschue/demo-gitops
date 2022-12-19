@@ -39,13 +39,13 @@ spec:
             # include deploy dir
             !/app/base
             !/app/dev
-    kustomization:
-      spec:
-        interval: 2m
-        path: "./app/dev"
-        prune: true
-        sourceRef:
-          kind: GitRepository
-          name: flux-sync-dev
+      kustomization:
+        spec:
+          interval: 2m
+          path: "./app/dev"
+          prune: true
+          sourceRef:
+            kind: GitRepository
+            name: flux-sync-dev
   providerConfigRef:
     name: helm-provider-dev
