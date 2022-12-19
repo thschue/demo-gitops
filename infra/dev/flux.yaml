@@ -39,9 +39,9 @@ spec:
             !/app
         kustomizationlist:
         - spec:
-            interval: 1m
+            interval: 3m
             path: ./app/dev
             prune: true
-            timeout: 1m
+            timeout: 3m
   providerConfigRef:
     name: helm-provider-dev
