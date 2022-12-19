@@ -1,7 +1,7 @@
 apiVersion: kubernetes.do.crossplane.io/v1alpha1
 kind: DOKubernetesCluster
 metadata:
-  name: gitops-dev
+  name: gitops-hardening
 spec:
   providerConfigRef:
     name: digitalocean
