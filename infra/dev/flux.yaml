@@ -40,7 +40,7 @@ spec:
         kustomizationlist:
         - spec:
             interval: 3m
-            path: ./app/dev
+            path: "./app/dev"
             prune: true
             timeout: 3m
   providerConfigRef:
