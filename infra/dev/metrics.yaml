@@ -1,0 +1,15 @@
+apiVersion: helm.crossplane.io/v1beta1
+kind: Release
+metadata:
+  name: flux-dev
+  namespace: crossplane-system
+spec:
+  # rollbackLimit: 3
+  forProvider:
+    namespace: kube-system
+    chart:
+      name: metrics-server
+      repository: https://kubernetes-sigs.github.io/metrics-server/
+    values:
+  providerConfigRef:
+    name: helm-provider-dev
