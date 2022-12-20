@@ -67,5 +67,4 @@ spec:
         metadata:
           name: ${{ printf "canary-%s" .Values.service }}
           status: ${{ if eq .Status "success" }}success{{ else }}failure{{ end }}
-        headers:
-          Authorization: $(GITHUB_TOKEN)
+          token: ${{ secrets.GITHUB_TOKEN }}
