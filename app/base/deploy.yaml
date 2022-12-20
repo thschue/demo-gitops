@@ -43,6 +43,9 @@ spec:
             - name: grpc
               containerPort: 9999
               protocol: TCP
+          env:
+            - name: VERSION
+              value: 6.2.3
           command:
             - ./podinfo
             - --port=9898
