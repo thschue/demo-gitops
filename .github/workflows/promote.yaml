@@ -1,8 +1,7 @@
 name: Promotion
 
 on:
-  flagger-canary-promotion-complete:
-    types: [success, failure]
+  workflow_dispatch: {}
 
 jobs:
   notify:
