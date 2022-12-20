@@ -9,8 +9,11 @@ spec:
     region: ams3
     version: 1.25.4-do.0
     nodePools:
-      - size: s-1vcpu-2gb
-        count: 3
+      - size: s-2vcpu-2gb
+        autoScale: true
+        count: 1
+        minNodes: 1
+        maxNodes: 6
         name: worker-pool
     maintenancePolicy:
       startTime: "00:00"
