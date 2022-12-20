@@ -10,7 +10,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: "*.nip.io"
+    - host: "dev.on-clouds.at"
       http:
         paths:
           - pathType: Prefix
