@@ -1,0 +1,13 @@
+name: Promotion
+
+on:
+  flagger_canary_promotion_complete:
+    types: [success, failure]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify Slack
+        run:
+          echo "Hello World"
