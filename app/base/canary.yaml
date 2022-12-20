@@ -38,7 +38,7 @@ spec:
     maxWeight: 50
     # canary increment step
     # percentage (0-100)
-    stepWeight: 5
+    stepWeight: 10
     # NGINX Prometheus checks
     metrics:
       - name: request-success-rate
@@ -47,16 +47,16 @@ spec:
         thresholdRange:
           min: 99
         interval: 1m
-  webhooks:
-    - name: acceptance-test
-      type: pre-rollout
-      url: http://flagger-loadtester.ingress-nginx/
-      timeout: 30s
-      metadata:
-        type: bash
-        cmd: "curl -sd 'test' http://podinfo-canary/token | grep token"
-    - name: load-test
-      url: http://flagger-loadtester.ingress-nginx/
-      timeout: 5s
-      metadata:
-        cmd: "hey -z 1m -q 10 -c 2 http://dev.on-clouds.at/"
+    webhooks:
+      - name: acceptance-test
+        type: pre-rollout
+        url: http://flagger-loadtester.ingress-nginx/
+        timeout: 30s
+        metadata:
+          type: bash
+          cmd: "curl -sd 'test' http://podinfo-canary/token | grep token"
+      - name: load-test
+        url: http://flagger-loadtester.ingress-nginx/
+        timeout: 5s
+        metadata:
+          cmd: "hey -z 1m -q 10 -c 2 http://dev.on-clouds.at/"
