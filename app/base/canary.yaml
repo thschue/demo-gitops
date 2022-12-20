@@ -62,7 +62,7 @@ spec:
           cmd: "hey -z 1m -q 10 -c 2 http://dev.on-clouds.at/"
 
       - name: github-actions
-        type: promotion
+        type: post-rollout
         url: https://api.github.com/repos/thschue/demo-gitops/actions/workflows/43551161/dispatches
         metadata:
           name: ${{ printf "canary-%s" .Values.service }}
