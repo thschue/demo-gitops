@@ -64,7 +64,6 @@ spec:
       - name: github-actions
         type: promotion
         url: https://api.github.com/repos/thschue/demo-gitops/actions/workflows/43551161/dispatches
-        event: flagger_canary_promotion_complete
         metadata:
           name: ${{ printf "canary-%s" .Values.service }}
           status: ${{ if eq .Status "success" }}success{{ else }}failure{{ end }}
