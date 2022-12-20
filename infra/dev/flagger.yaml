@@ -52,7 +52,7 @@ spec:
   forProvider:
     namespace: ingress-nginx
     chart:
-      name: flagger-loadtester
+      name: loadtester
       repository: https://flagger.app
     values:
       cmd:
