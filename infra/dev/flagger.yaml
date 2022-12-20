@@ -9,6 +9,6 @@ spec:
     namespace: flagger-system
     chart:
       name: flagger
-      repository: oci://ghcr.io/fluxcd/charts
+      repository: https://flagger.app
   providerConfigRef:
     name: helm-provider-dev
