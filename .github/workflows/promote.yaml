@@ -1,7 +1,7 @@
 name: Promotion
 
 on:
-  flagger_canary_promotion_complete:
+  flagger-canary-promotion-complete:
     types: [success, failure]
 
 jobs:
