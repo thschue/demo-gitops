@@ -40,3 +40,22 @@ spec:
       meshProvider: nginx
   providerConfigRef:
     name: helm-provider-dev
+
+---
+apiVersion: helm.crossplane.io/v1beta1
+kind: Release
+metadata:
+  name: flagger-loadtester-dev
+  namespace: crossplane-system
+spec:
+  # rollbackLimit: 3
+  forProvider:
+    namespace: ingress-nginx
+    chart:
+      name: flagger-loadtester
+      repository: https://flagger.app
+    values:
+      cmd:
+        timeout: 1h
+  providerConfigRef:
+    name: helm-provider-dev
