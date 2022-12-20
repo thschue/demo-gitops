@@ -21,4 +21,4 @@ spec:
             - --level=info
             - --random-delay=false
             - --random-error=false
-            - --version=$(VERSION)
+            - --ui-message="greetings from $(VERSION)"
