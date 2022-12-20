@@ -9,3 +9,13 @@ spec:
       containers:
         - name: podinfod
           image: thschue/podinfo:0.0.3 # {"$imagepolicy": "flux-system:podinfo-dev"}
+          command:
+            - ./podinfo
+            - --port=9898
+            - --port-metrics=9797
+            - --grpc-port=9999
+            - --grpc-service-name=podinfo
+            - --level=info
+            - --random-delay=false
+            - --random-error=false
+            - --version=0.0.3 # {"$imagepolicy": "flux-system:podinfo-dev:tag"}
