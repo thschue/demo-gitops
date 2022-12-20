@@ -8,4 +8,4 @@ spec:
     spec:
       containers:
         - name: podinfod
-          image: ghcr.io/stefanprodan/podinfo:6.2.3 # {"$imagepolicy": "flux-system:podinfo"}
+          image: ghcr.io/stefanprodan/podinfo:5.0.3 # {"$imagepolicy": "flux-system:podinfo"}
