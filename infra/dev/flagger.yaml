@@ -1,0 +1,14 @@
+apiVersion: helm.crossplane.io/v1beta1
+kind: Release
+metadata:
+  name: flagger-dev
+  namespace: crossplane-system
+spec:
+  # rollbackLimit: 3
+  forProvider:
+    namespace: flagger-system
+    chart:
+      name: flagger
+      repository: oci://ghcr.io/fluxcd/charts
+  providerConfigRef:
+    name: helm-provider-dev
