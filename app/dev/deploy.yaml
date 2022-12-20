@@ -8,10 +8,10 @@ spec:
     spec:
       containers:
         - name: podinfod
-          image: thschue/podinfo:0.0.5 # {"$imagepolicy": "flux-system:podinfo-dev"}
+          image: thschue/podinfo:0.0.6 # {"$imagepolicy": "flux-system:podinfo-dev"}
           env:
             - name: VERSION
-              value: 0.0.5 # {"$imagepolicy": "flux-system:podinfo-dev:tag"}
+              value: 0.0.6 # {"$imagepolicy": "flux-system:podinfo-dev:tag"}
           command:
             - ./podinfo
             - --port=9898
