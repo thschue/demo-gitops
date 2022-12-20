@@ -8,4 +8,4 @@ spec:
     spec:
       containers:
         - name: podinfod
-          image: thschue/podinfo:0.0.2 # {"$imagepolicy": "flux-system:podinfo-dev"}
+          image: thschue/podinfo:0.0.3 # {"$imagepolicy": "flux-system:podinfo-dev"}
